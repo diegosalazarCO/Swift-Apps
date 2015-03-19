@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     var usuarioEstaDigitandoNumero = false
     
+    var cerebro = CerebroCalculadora()
+    
     @IBAction func añadirDigito(mensajero: UIButton) {
         
         let digito = mensajero.currentTitle!
@@ -28,42 +30,31 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operar(mensajero: UIButton) {
-        
-        let operacion = mensajero.currentTitle!
-        
-        switch operacion {
-            case "÷" : hacerOperacion { $1 / $0 }
-            case "×" : hacerOperacion { $0 * $1 }
-            case "−" : hacerOperacion { $1 - $0 }
-            case "+" : hacerOperacion { $0 + $1 }
-            case "√" : hacerOperacion { sqrt($0) }
-            default:break
-        }
-    }
-    
-    func hacerOperacion (operacion: (Double,Double) ->Double) {
-        if stackOperandos.count >= 2 {
-            valorDisplay = operacion(stackOperandos.removeLast(), stackOperandos.removeLast())
+        if usuarioEstaDigitandoNumero{
             enter()
         }
-        
-    }
-    
-    func hacerOperacion (operacion: (Double) ->Double) {
-        if stackOperandos.count >= 2 {
-            valorDisplay = operacion(stackOperandos.removeLast())
-            enter()
+        if let operacion = mensajero.currentTitle{
+            if let resultado = cerebro.hacerOperacion(operacion){
+                valorDisplay = resultado
+            } else {
+                // TODO: convertir valorDisplay un Optional
+                // para que pueda ser nil
+                valorDisplay = 0
+            }
         }
         
     }
     
-    var stackOperandos = [Double]()
 
     @IBAction func enter() {
-        
         usuarioEstaDigitandoNumero = false
-        stackOperandos.append(valorDisplay)
-        println("Stack = \(stackOperandos)")
+        if let resultado = cerebro.pushOperando(valorDisplay){
+            valorDisplay = resultado
+        } else {
+            // TODO: convertir valorDisplay un Optional
+            // para que pueda ser nil
+            valorDisplay = 0
+        }
     }
 
     var valorDisplay: Double {
