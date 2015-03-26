@@ -178,18 +178,24 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5X-Np-8CL">
                                 <rect key="frame" x="304" y="494" width="132" height="98"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
-                                <state key="normal">
+                                <state key="normal" title="sin">
                                     <color key="titleColor" red="1" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="operar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mBT-rO-HNg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZb-Ui-pwP">
                                 <rect key="frame" x="164" y="494" width="132" height="98"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
-                                <state key="normal">
+                                <state key="normal" title="cos">
                                     <color key="titleColor" red="1" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="operar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xwe-cy-RhG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Z7-Jm-IvW">
                                 <rect key="frame" x="24" y="494" width="132" height="98"/>
