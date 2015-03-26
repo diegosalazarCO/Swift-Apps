@@ -25,6 +25,8 @@ class CerebroCalculadora {
         operaciones["−"] = Op.OperacionBinaria("−") {$1 - $0}
         operaciones["+"] = Op.OperacionBinaria("+", +)
         operaciones["√"] = Op.OperacionUnitaria("√", sqrt)
+        operaciones["sin"] = Op.OperacionUnitaria("sin", sin)
+        operaciones["cos"] = Op.OperacionUnitaria("cos", cos)
     }
     
     private func evaluar(ops: [Op])->(resultado: Double?, opsRestantes: [Op]) {
