@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
     
+    @IBOutlet weak var displayHistoria: UILabel!
+    
     var usuarioEstaDigitandoNumero = false
     
     var cerebro = CerebroCalculadora()
@@ -21,7 +23,10 @@ class ViewController: UIViewController {
         let digito = mensajero.currentTitle!
         
         if usuarioEstaDigitandoNumero {
-            display.text = display.text! + digito
+            if (display.text!.rangeOfString(".") != nil) && digito == "."  {
+            } else {
+                display.text = display.text! + digito
+            }
         } else {
             display.text = digito
             usuarioEstaDigitandoNumero = true
@@ -34,8 +39,10 @@ class ViewController: UIViewController {
             enter()
         }
         if let operacion = mensajero.currentTitle{
+            displayHistoria.text! += "\(operacion)"
             if let resultado = cerebro.hacerOperacion(operacion){
                 valorDisplay = resultado
+                
             } else {
                 // TODO: convertir valorDisplay un Optional
                 // para que pueda ser nil
@@ -50,10 +57,12 @@ class ViewController: UIViewController {
         usuarioEstaDigitandoNumero = false
         if let resultado = cerebro.pushOperando(valorDisplay){
             valorDisplay = resultado
+            displayHistoria.text! += "\(resultado)"
         } else {
             // TODO: convertir valorDisplay un Optional
             // para que pueda ser nil
             valorDisplay = 0
+            displayHistoria.text = ""
         }
     }
 
