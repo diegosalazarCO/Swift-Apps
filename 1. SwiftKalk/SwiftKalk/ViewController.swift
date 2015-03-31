@@ -74,6 +74,17 @@ class ViewController: UIViewController {
         displayHistoria.text = " "
     }
     
+    @IBAction func borrarDigito(mensajero: UIButton) {
+        if usuarioEstaDigitandoNumero {
+            let textoDisplay = display.text!
+            if countElements(textoDisplay) > 1 {
+                display.text = dropLast(textoDisplay)
+            } else {
+                display.text = "0"
+            }
+        }
+    }
+    
     var valorDisplay: Double {
         get {
             return (display.text! as NSString!).doubleValue
