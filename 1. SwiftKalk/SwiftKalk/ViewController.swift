@@ -64,21 +64,17 @@ class ViewController: UIViewController {
                 valorDisplay = resultado
                 
             } else {
-                // TODO: convertir valorDisplay un Optional
-                // para que pueda ser nil
-                valorDisplay = 0
+                valorDisplay = nil
             }
         }
     }
     
     @IBAction func enter() {
         usuarioEstaDigitandoNumero = false
-        if let resultado = cerebro.pushOperando(valorDisplay){
+        if let resultado = cerebro.pushOperando(valorDisplay!){
             valorDisplay = resultado
         } else {
-            // TODO: convertir valorDisplay un Optional
-            // para que pueda ser nil
-            valorDisplay = 0
+            valorDisplay = nil
             displayHistoria.text = " "
         }
     }
@@ -103,12 +99,22 @@ class ViewController: UIViewController {
         }
     }
     
-    var valorDisplay: Double {
+    var valorDisplay: Double? {
         get {
-            return (display.text! as NSString!).doubleValue
+            if let textoDisplay = display.text {
+                if let numeroDisplay = NSNumberFormatter().numberFromString(textoDisplay){
+                    //return (display.text! as NSString!).doubleValue
+                    return numeroDisplay.doubleValue
+                }
+            }
+            return nil
         }
         set {
-            display.text = "\(newValue)"
+            if (newValue != nil){
+                display.text = "\(newValue!)"
+            } else {
+                display.text = "0"
+            }
             displayHistoria.text = cerebro.mostrarStack()
         }
     }
