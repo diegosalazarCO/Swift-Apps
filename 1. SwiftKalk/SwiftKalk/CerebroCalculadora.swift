@@ -10,23 +10,40 @@ import Foundation
 
 class CerebroCalculadora {
     
-    private enum Op {
+    private enum Op: Printable {
         case Operando(Double)
         case OperacionUnitaria ( String, Double -> Double )
         case OperacionBinaria( String, ( Double, Double ) -> Double )
+        
+        var description: String{
+            get {
+                switch self {
+                case .Operando(let operando):
+                    return "\(operando)"
+                case .OperacionUnitaria(let simbolo, _):
+                    return "\(simbolo)"
+                case .OperacionBinaria(let simbolo, _):
+                    return "\(simbolo)"
+                }
+            }
+        }
     }
     
     private var stackOp = [Op]()
     private var operaciones = [String:Op]()
     
     init() {
-        operaciones["÷"] = Op.OperacionBinaria("÷") {$1 / $0}
-        operaciones["×"] = Op.OperacionBinaria("×", *)
-        operaciones["−"] = Op.OperacionBinaria("−") {$1 - $0}
-        operaciones["+"] = Op.OperacionBinaria("+", +)
-        operaciones["√"] = Op.OperacionUnitaria("√", sqrt)
-        operaciones["sin"] = Op.OperacionUnitaria("sin", sin)
-        operaciones["cos"] = Op.OperacionUnitaria("cos", cos)
+        func aprenderOperacion(op: Op){
+            operaciones[op.description] = op
+        }
+        
+        aprenderOperacion(Op.OperacionBinaria("÷") {$1 / $0})
+        aprenderOperacion(Op.OperacionBinaria("×", *))
+        aprenderOperacion(Op.OperacionBinaria("−") {$1 - $0})
+        aprenderOperacion(Op.OperacionBinaria("+", +))
+        aprenderOperacion(Op.OperacionUnitaria("√", sqrt))
+        aprenderOperacion(Op.OperacionUnitaria("sin", sin))
+        aprenderOperacion(Op.OperacionUnitaria("cos", cos))
     }
     
     private func evaluar(ops: [Op])->(resultado: Double?, opsRestantes: [Op]) {
