@@ -28,7 +28,11 @@ class ViewController: UIViewController {
                 display.text = display.text! + digito
             }
         } else {
-            display.text = digito
+            if digito == "."{
+                display.text = "0."
+            } else {
+                display.text = digito
+            }
             usuarioEstaDigitandoNumero = true
         }
         
@@ -39,7 +43,6 @@ class ViewController: UIViewController {
             enter()
         }
         if let operacion = mensajero.currentTitle{
-            displayHistoria.text! += "\(operacion)"
             if let resultado = cerebro.hacerOperacion(operacion){
                 valorDisplay = resultado
                 
@@ -57,21 +60,27 @@ class ViewController: UIViewController {
         usuarioEstaDigitandoNumero = false
         if let resultado = cerebro.pushOperando(valorDisplay){
             valorDisplay = resultado
-            displayHistoria.text! += "\(resultado)"
         } else {
             // TODO: convertir valorDisplay un Optional
             // para que pueda ser nil
             valorDisplay = 0
-            displayHistoria.text = ""
+            displayHistoria.text = " "
         }
     }
 
+    @IBAction func limpiar(mensajero: UIButton) {
+        cerebro.limpiarStack()
+        display.text = "0"
+        displayHistoria.text = " "
+    }
+    
     var valorDisplay: Double {
         get {
             return (display.text! as NSString!).doubleValue
         }
         set {
             display.text = "\(newValue)"
+            displayHistoria.text = cerebro.mostrarStack()
         }
     }
     
