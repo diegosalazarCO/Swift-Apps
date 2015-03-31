@@ -32,6 +32,18 @@ class CerebroCalculadora {
         }
     }
     
+    var programa: AnyObject {
+        get {
+            return stackOp.map{$0.description}
+        }
+        set {
+            if let simbolosOp = newValue as? [String] {
+                var nuevoStackOps = [Op]()
+                
+            }
+        }
+    }
+    
     private var stackOp = [Op]()
     private var operaciones = [String:Op]()
     
@@ -47,7 +59,8 @@ class CerebroCalculadora {
         aprenderOperacion(Op.OperacionUnitaria("√", sqrt))
         aprenderOperacion(Op.OperacionUnitaria("sin", sin))
         aprenderOperacion(Op.OperacionUnitaria("cos", cos))
-        aprenderOperacion(Op.OperacionNula("π", {M_PI}))
+        aprenderOperacion(Op.OperacionNula("π") { M_PI })
+        aprenderOperacion(Op.OperacionUnitaria("±") { -$0 })
     }
     
     private func evaluar(ops: [Op])->(resultado: Double?, opsRestantes: [Op]) {
