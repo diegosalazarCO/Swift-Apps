@@ -12,7 +12,8 @@ class CerebroCalculadora {
     
     private enum Op: Printable {
         case Operando(Double)
-        case OperacionUnitaria ( String, Double -> Double )
+        case OperacionNula(String, ()-> Double)
+        case OperacionUnitaria( String, Double -> Double )
         case OperacionBinaria( String, ( Double, Double ) -> Double )
         
         var description: String{
@@ -20,6 +21,8 @@ class CerebroCalculadora {
                 switch self {
                 case .Operando(let operando):
                     return "\(operando)"
+                case .OperacionNula(let simbolo, _):
+                    return "\(simbolo)"
                 case .OperacionUnitaria(let simbolo, _):
                     return "\(simbolo)"
                 case .OperacionBinaria(let simbolo, _):
@@ -44,6 +47,7 @@ class CerebroCalculadora {
         aprenderOperacion(Op.OperacionUnitaria("√", sqrt))
         aprenderOperacion(Op.OperacionUnitaria("sin", sin))
         aprenderOperacion(Op.OperacionUnitaria("cos", cos))
+        aprenderOperacion(Op.OperacionNula("π", {M_PI}))
     }
     
     private func evaluar(ops: [Op])->(resultado: Double?, opsRestantes: [Op]) {
@@ -54,6 +58,8 @@ class CerebroCalculadora {
             switch op {
             case .Operando(let operando):
                 return (operando, opsRestantes)
+            case .OperacionNula(_, let operacion):
+                return (operacion(), opsRestantes)
             case .OperacionUnitaria(_, let operacion): // _ significa No importa el nombre
                 let evaluacionOperando = evaluar(opsRestantes)
                 if let operando = evaluacionOperando.resultado{
@@ -88,6 +94,14 @@ class CerebroCalculadora {
             stackOp.append(operacion)
         }
         return evaluar()
+    }
+    
+    func mostrarStack() -> String? {
+        return " ".join(stackOp.map{ "\($0)" })
+    }
+    
+    func limpiarStack(){
+        stackOp = []
     }
     
 }
