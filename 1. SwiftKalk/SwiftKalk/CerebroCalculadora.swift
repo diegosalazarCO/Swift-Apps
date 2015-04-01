@@ -15,6 +15,7 @@ class CerebroCalculadora {
         case OperacionNula(String, ()-> Double)
         case OperacionUnitaria( String, Double -> Double )
         case OperacionBinaria( String, ( Double, Double ) -> Double )
+        case Variable(String)
         
         var description: String{
             get {
@@ -27,6 +28,8 @@ class CerebroCalculadora {
                     return "\(simbolo)"
                 case .OperacionBinaria(let simbolo, _):
                     return "\(simbolo)"
+                case .Variable(let simbolo):
+                    return "\(simbolo)"
                 }
             }
         }
@@ -34,18 +37,32 @@ class CerebroCalculadora {
     
     var programa: AnyObject {
         get {
+//            var valorRetorno = [String]()
+//            for op in stackOp {
+//                valorRetorno.append(op.description)
+//            }
+//            return valorRetorno
             return stackOp.map{$0.description}
         }
         set {
             if let simbolosOp = newValue as? [String] {
                 var nuevoStackOps = [Op]()
-                
+                let formatterNumero = NSNumberFormatter()
+                for simbolo in simbolosOp {
+                    if let op = operaciones[simbolo] {
+                        nuevoStackOps.append(op)
+                    } else if let operando = formatterNumero.numberFromString(simbolo)?.doubleValue {
+                        nuevoStackOps.append(.Operando(operando))
+                    }
+                }
+                stackOp = nuevoStackOps
             }
         }
     }
     
     private var stackOp = [Op]()
     private var operaciones = [String:Op]()
+    var valoresVariable = [String: Double]()
     
     init() {
         func aprenderOperacion(op: Op){
@@ -86,6 +103,8 @@ class CerebroCalculadora {
                         return (operacion(operando1, operando2), op1Evaluacion.opsRestantes)
                     }
                 }
+            case .Variable(let simbolo):
+                return (valoresVariable[simbolo], opsRestantes)
             }
         }
         return (nil, ops)
@@ -97,8 +116,13 @@ class CerebroCalculadora {
         return resultado
     }
     
-    func pushOperando(operando: Double)->Double? {
+    func pushOperando(operando: Double) -> Double? {
         stackOp.append(Op.Operando(operando))
+        return evaluar()
+    }
+    
+    func pushOperando(simbolo: String) -> Double? {
+        stackOp.append(Op.Variable(simbolo))
         return evaluar()
     }
     
