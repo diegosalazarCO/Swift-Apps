@@ -101,13 +101,7 @@ class ViewController: UIViewController {
     
     var valorDisplay: Double? {
         get {
-            if let textoDisplay = display.text {
-                if let numeroDisplay = NSNumberFormatter().numberFromString(textoDisplay){
-                    //return (display.text! as NSString!).doubleValue
-                    return numeroDisplay.doubleValue
-                }
-            }
-            return nil
+            return NSNumberFormatter().numberFromString(display.text!)?.doubleValue
         }
         set {
             if (newValue != nil){
