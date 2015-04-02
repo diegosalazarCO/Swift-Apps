@@ -183,6 +183,7 @@ class CerebroCalculadora {
     
     func limpiarStack(){
         stackOp = []
+        valoresVariable = [ String: Double ]()
     }
     
 }
