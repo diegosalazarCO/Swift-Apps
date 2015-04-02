@@ -60,6 +60,50 @@ class CerebroCalculadora {
         }
     }
     
+    var descripcion: String {
+        get {
+            var (resultado, ops) = ("", stackOp)
+            do {
+                var actual: String?
+                (actual, ops) = descripcion(ops)
+                resultado = resultado == "" ? actual! : "\(actual!), \(resultado)"
+            } while ops.count > 0
+            return resultado
+        }
+    }
+    
+    private func descripcion(ops: [Op]) -> (result: String?, opsRestantes: [Op]) {
+        if !ops.isEmpty {
+            var opsRestantes = ops
+            let op = opsRestantes.removeLast()
+            switch op {
+            case .Operando(let operando):
+                return (String(format: "%g", operando) , opsRestantes)
+            case .OperacionNula(let simbolo, _):
+                return (simbolo, opsRestantes);
+            case .OperacionUnitaria(let simbolo, _):
+                let evaluacionOperando = descripcion(opsRestantes)
+                if let operando = evaluacionOperando.result {
+                    return ("\(simbolo)(\(operando))", evaluacionOperando.opsRestantes)
+                }
+            case .OperacionBinaria(let simbolo, _):
+                let evaluacionOp1 = descripcion(opsRestantes)
+                if var operando1 = evaluacionOp1.result {
+                    if opsRestantes.count - evaluacionOp1.opsRestantes.count > 2 {
+                        operando1 = "(\(operando1))"
+                    }
+                    let evaluacionOp2 = descripcion(evaluacionOp1.opsRestantes)
+                    if let operando2 = evaluacionOp2.result {
+                        return ("\(operando2) \(simbolo) \(operando1)", evaluacionOp2.opsRestantes)
+                    }
+                }
+            case .Variable(let simbolo):
+                return (simbolo, opsRestantes)
+            }
+        }
+        return ("?", ops)
+    }
+    
     private var stackOp = [Op]()
     private var operaciones = [String:Op]()
     var valoresVariable = [String: Double]()
