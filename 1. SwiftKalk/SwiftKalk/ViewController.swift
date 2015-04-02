@@ -41,7 +41,7 @@ class ViewController: UIViewController {
                 display.text = digito
             }
             usuarioEstaDigitandoNumero = true
-            //displayHistoria.text = cerebro.mostrarStack()
+            displayHistoria.text = cerebro.descripcion != "?" ? cerebro.descripcion : " "
         }
         
     }
@@ -109,7 +109,7 @@ class ViewController: UIViewController {
             } else {
                 display.text = "0"
             }
-            displayHistoria.text = cerebro.mostrarStack()
+            displayHistoria.text = cerebro.descripcion + " ="
         }
     }
 }
