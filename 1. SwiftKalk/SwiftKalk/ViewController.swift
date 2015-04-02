@@ -79,6 +79,31 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func guardarVariable(mensajero: UIButton) {
+        if let variable = last(mensajero.currentTitle!) {
+            if valorDisplay != nil {
+                cerebro.valoresVariable["\(variable)"] = valorDisplay
+                if let resultado = cerebro.evaluar() {
+                    valorDisplay = resultado
+                } else {
+                    valorDisplay = nil
+                }
+            }
+        }
+        usuarioEstaDigitandoNumero = false
+    }
+    
+    @IBAction func pushVariable(mensajero: UIButton) {
+        if usuarioEstaDigitandoNumero {
+            enter()
+        }
+        if let resultado = cerebro.pushOperando(mensajero.currentTitle!) {
+            valorDisplay = resultado
+        } else {
+            valorDisplay = nil
+        }
+    }
+    
     @IBAction func limpiar(mensajero: UIButton) {
         cerebro.limpiarStack()
         display.text = "0"
