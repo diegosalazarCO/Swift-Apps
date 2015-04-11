@@ -16,7 +16,7 @@ class CalculadoraViewController: UIViewController {
     
     var usuarioEstaDigitandoNumero = false
     
-    var cerebro = CerebroCalculadora()
+    private var cerebro = CerebroCalculadora()
     
     @IBAction func añadirDigito(mensajero: UIButton) {
         
@@ -135,6 +135,21 @@ class CalculadoraViewController: UIViewController {
                 display.text = "0"
             }
             displayHistoria.text = cerebro.descripcion + " ="
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destino = segue.destinationViewController as? UIViewController
+        if let navController = destino as? UINavigationController {
+            destino = navController.visibleViewController
+        }
+        if let graficoVC = destino as? GraficoViewController {
+            if let identificador = segue.identifier {
+                switch identificador {
+                    case "Grafico Segue": graficoVC.title = cerebro.descripcion == "" ? "Gráfico" : cerebro.descripcion.componentsSeparatedByString(", ").last
+                    default: break
+                }
+            }
         }
     }
 }
