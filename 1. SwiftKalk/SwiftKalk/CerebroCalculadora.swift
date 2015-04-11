@@ -53,6 +53,8 @@ class CerebroCalculadora {
                         nuevoStackOps.append(op)
                     } else if let operando = formatterNumero.numberFromString(simbolo)?.doubleValue {
                         nuevoStackOps.append(.Operando(operando))
+                    } else {
+                        nuevoStackOps.append(.Variable(simbolo))
                     }
                 }
                 stackOp = nuevoStackOps
