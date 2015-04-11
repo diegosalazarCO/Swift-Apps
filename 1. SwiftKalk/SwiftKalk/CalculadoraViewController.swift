@@ -146,7 +146,9 @@ class CalculadoraViewController: UIViewController {
         if let graficoVC = destino as? GraficoViewController {
             if let identificador = segue.identifier {
                 switch identificador {
-                    case "Grafico Segue": graficoVC.title = cerebro.descripcion == "" ? "Gráfico" : cerebro.descripcion.componentsSeparatedByString(", ").last
+                    case "Grafico Segue":
+                        graficoVC.title = cerebro.descripcion == "" ? "Gráfico" : cerebro.descripcion.componentsSeparatedByString(", ").last
+                        graficoVC.programa = cerebro.programa
                     default: break
                 }
             }
