@@ -12,16 +12,19 @@ protocol GraficoViewFuenteDatos: class {
     func y(x: CGFloat) -> CGFloat?
 }
 
+@IBDesignable
 class GraficoView: UIView {
     
     weak var fuenteDatos: GraficoViewFuenteDatos?
-    
+    @IBInspectable
     var anchoLinea: CGFloat = 1.0 {
         didSet { setNeedsDisplay() }
     }
-    var color: UIColor = UIColor(red: 82, green: 237, blue: 199, alpha: 1.0) {
+    @IBInspectable
+    var color: UIColor = UIColor.grayColor() {
         didSet { setNeedsDisplay() }
     }
+    @IBInspectable
     var escala: CGFloat = 50.0 {
         didSet {
             setNeedsDisplay()
@@ -41,7 +44,9 @@ class GraficoView: UIView {
         }
     }
     override func drawRect(rect: CGRect) {
-        // Drawing code
+        if resetearOrigen {
+            origen = center
+        }
         AxesDrawer(contentScaleFactor: contentScaleFactor)
         .drawAxesInRect(bounds, origin: origen, pointsPerUnit: escala)
         color.set()
@@ -53,6 +58,7 @@ class GraficoView: UIView {
             punto.x = CGFloat(i) / contentScaleFactor
             if let y = fuenteDatos?.y((punto.x - origen.x) / escala) {
                 if !y.isNormal && !y.isZero {
+                    primerValor = true
                     continue
                 }
                 punto.y = origen.y - y * escala
@@ -62,6 +68,8 @@ class GraficoView: UIView {
                 } else {
                     path.addLineToPoint(punto)
                 }
+            } else {
+                primerValor = true
             }
         }
         path.stroke()
