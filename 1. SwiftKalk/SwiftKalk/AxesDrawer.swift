@@ -14,7 +14,7 @@ class AxesDrawer
         static let HashmarkSize: CGFloat = 6
     }
     
-    var color = UIColor.blueColor()
+    var color = UIColor.darkGrayColor()
     var minimumPointsPerHashmark: CGFloat = 40
     var contentScaleFactor: CGFloat = 1 // set this from UIView's contentScaleFactor to position axes with maximum accuracy
     

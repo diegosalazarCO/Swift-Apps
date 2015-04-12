@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		268E9C2C1AD8AA570004627A /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E9C2B1AD8AA570004627A /* AxesDrawer.swift */; };
+		268E9C2E1AD8AF530004627A /* GraficoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E9C2D1AD8AF530004627A /* GraficoView.swift */; };
+		26B9FD2F1AD931410017985C /* GraficoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9FD2E1AD931410017985C /* GraficoViewController.swift */; };
 		26D59C591AB743BF00F77C70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D59C581AB743BF00F77C70 /* AppDelegate.swift */; };
-		26D59C5B1AB743BF00F77C70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D59C5A1AB743BF00F77C70 /* ViewController.swift */; };
+		26D59C5B1AB743BF00F77C70 /* CalculadoraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D59C5A1AB743BF00F77C70 /* CalculadoraViewController.swift */; };
 		26D59C5E1AB743BF00F77C70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26D59C5C1AB743BF00F77C70 /* Main.storyboard */; };
 		26D59C601AB743BF00F77C70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26D59C5F1AB743BF00F77C70 /* Images.xcassets */; };
 		26D59C631AB743BF00F77C70 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D59C611AB743BF00F77C70 /* LaunchScreen.xib */; };
 		26D59C6F1AB743BF00F77C70 /* SwiftKalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D59C6E1AB743BF00F77C70 /* SwiftKalkTests.swift */; };
+		26FB5E741ABB36A7006164A4 /* CerebroCalculadora.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FB5E731ABB36A7006164A4 /* CerebroCalculadora.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +30,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		268E9C2B1AD8AA570004627A /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxesDrawer.swift; sourceTree = "<group>"; };
+		268E9C2D1AD8AF530004627A /* GraficoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraficoView.swift; sourceTree = "<group>"; };
+		26B9FD2E1AD931410017985C /* GraficoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraficoViewController.swift; sourceTree = "<group>"; };
 		26D59C531AB743BF00F77C70 /* SwiftKalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftKalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D59C571AB743BF00F77C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26D59C581AB743BF00F77C70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		26D59C5A1AB743BF00F77C70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		26D59C5A1AB743BF00F77C70 /* CalculadoraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculadoraViewController.swift; sourceTree = "<group>"; };
 		26D59C5D1AB743BF00F77C70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26D59C5F1AB743BF00F77C70 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		26D59C621AB743BF00F77C70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		26D59C681AB743BF00F77C70 /* SwiftKalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftKalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D59C6D1AB743BF00F77C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26D59C6E1AB743BF00F77C70 /* SwiftKalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftKalkTests.swift; sourceTree = "<group>"; };
+		26FB5E731ABB36A7006164A4 /* CerebroCalculadora.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CerebroCalculadora.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +86,12 @@
 			isa = PBXGroup;
 			children = (
 				26D59C581AB743BF00F77C70 /* AppDelegate.swift */,
-				26D59C5A1AB743BF00F77C70 /* ViewController.swift */,
+				268E9C2B1AD8AA570004627A /* AxesDrawer.swift */,
+				26FB5E731ABB36A7006164A4 /* CerebroCalculadora.swift */,
+				26D59C5A1AB743BF00F77C70 /* CalculadoraViewController.swift */,
 				26D59C5C1AB743BF00F77C70 /* Main.storyboard */,
+				268E9C2D1AD8AF530004627A /* GraficoView.swift */,
+				26B9FD2E1AD931410017985C /* GraficoViewController.swift */,
 				26D59C5F1AB743BF00F77C70 /* Images.xcassets */,
 				26D59C611AB743BF00F77C70 /* LaunchScreen.xib */,
 				26D59C561AB743BF00F77C70 /* Supporting Files */,
@@ -212,7 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26D59C5B1AB743BF00F77C70 /* ViewController.swift in Sources */,
+				268E9C2E1AD8AF530004627A /* GraficoView.swift in Sources */,
+				26FB5E741ABB36A7006164A4 /* CerebroCalculadora.swift in Sources */,
+				26B9FD2F1AD931410017985C /* GraficoViewController.swift in Sources */,
+				268E9C2C1AD8AA570004627A /* AxesDrawer.swift in Sources */,
+				26D59C5B1AB743BF00F77C70 /* CalculadoraViewController.swift in Sources */,
 				26D59C591AB743BF00F77C70 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +423,7 @@
 				26D59C741AB743BF00F77C70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26D59C751AB743BF00F77C70 /* Build configuration list for PBXNativeTarget "SwiftKalkTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +432,7 @@
 				26D59C771AB743BF00F77C70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
