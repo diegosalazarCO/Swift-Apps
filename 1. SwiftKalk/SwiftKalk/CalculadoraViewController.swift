@@ -113,9 +113,9 @@ class CalculadoraViewController: UIViewController {
     @IBAction func borrarDigito(mensajero: UIButton) {
         if usuarioEstaDigitandoNumero {
             let textoDisplay = display.text!
-            if countElements(textoDisplay) > 1 {
+            if count(textoDisplay) > 1 {
                 display.text = dropLast(textoDisplay)
-                if (countElements(textoDisplay) == 2) && (display.text?.rangeOfString("-") != nil) {
+                if (count(textoDisplay) == 2) && (display.text?.rangeOfString("-") != nil) {
                     display.text = "-0"
                 }
             } else {
