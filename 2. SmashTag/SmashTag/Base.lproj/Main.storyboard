@@ -12,8 +12,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Buscar" minimumFontSize="17" id="7C4-cy-VBe">
+                            <rect key="frame" x="0.0" y="-30" width="600" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gp2-vq-oaP">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="Tweet" id="gp2-vq-oaP" customClass="TweetTableViewCell" customModule="SmashTag" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gp2-vq-oaP" id="0dL-cp-zak">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -26,6 +32,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="npR-LY-7tN"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="7C4-cy-VBe" id="gOT-nX-0Xh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C74-kK-7Eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

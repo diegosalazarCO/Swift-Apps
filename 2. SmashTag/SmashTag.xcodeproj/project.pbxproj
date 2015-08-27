@@ -13,10 +13,11 @@
 		26D5331C1B8EC323008459E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D5331A1B8EC323008459E2 /* LaunchScreen.xib */; };
 		26D533281B8EC323008459E2 /* SmashTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D533271B8EC323008459E2 /* SmashTagTests.swift */; };
 		26D533341B8EC584008459E2 /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D533331B8EC584008459E2 /* TweetTableViewController.swift */; };
-		26E865861B8F50B40018CB3B /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865821B8F50B40018CB3B /* MediaItem.swift */; };
-		26E865871B8F50B40018CB3B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865831B8F50B40018CB3B /* Tweet.swift */; };
-		26E865881B8F50B40018CB3B /* TwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865841B8F50B40018CB3B /* TwitterRequest.swift */; };
-		26E865891B8F50B40018CB3B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865851B8F50B40018CB3B /* User.swift */; };
+		26E865981B8F66220018CB3B /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865941B8F66220018CB3B /* MediaItem.swift */; };
+		26E865991B8F66220018CB3B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865951B8F66220018CB3B /* Tweet.swift */; };
+		26E8659A1B8F66220018CB3B /* TwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865961B8F66220018CB3B /* TwitterRequest.swift */; };
+		26E8659B1B8F66220018CB3B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865971B8F66220018CB3B /* User.swift */; };
+		26E8659D1B8F6E9E0018CB3B /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8659C1B8F6E9E0018CB3B /* TweetTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +41,11 @@
 		26D533261B8EC323008459E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26D533271B8EC323008459E2 /* SmashTagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashTagTests.swift; sourceTree = "<group>"; };
 		26D533331B8EC584008459E2 /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
-		26E865821B8F50B40018CB3B /* MediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
-		26E865831B8F50B40018CB3B /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
-		26E865841B8F50B40018CB3B /* TwitterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterRequest.swift; sourceTree = "<group>"; };
-		26E865851B8F50B40018CB3B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		26E865941B8F66220018CB3B /* MediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
+		26E865951B8F66220018CB3B /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		26E865961B8F66220018CB3B /* TwitterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterRequest.swift; sourceTree = "<group>"; };
+		26E865971B8F66220018CB3B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		26E8659C1B8F6E9E0018CB3B /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +89,8 @@
 			children = (
 				26D533331B8EC584008459E2 /* TweetTableViewController.swift */,
 				26D533151B8EC323008459E2 /* Main.storyboard */,
-				26E865811B8F50B40018CB3B /* Twitter Swift 1.2 */,
+				26E8659C1B8F6E9E0018CB3B /* TweetTableViewCell.swift */,
+				26E865931B8F66220018CB3B /* Twitter Swift 1.2 */,
 				26D5330F1B8EC323008459E2 /* Supporting Files */,
 			);
 			path = SmashTag;
@@ -121,13 +124,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		26E865811B8F50B40018CB3B /* Twitter Swift 1.2 */ = {
+		26E865931B8F66220018CB3B /* Twitter Swift 1.2 */ = {
 			isa = PBXGroup;
 			children = (
-				26E865821B8F50B40018CB3B /* MediaItem.swift */,
-				26E865831B8F50B40018CB3B /* Tweet.swift */,
-				26E865841B8F50B40018CB3B /* TwitterRequest.swift */,
-				26E865851B8F50B40018CB3B /* User.swift */,
+				26E865941B8F66220018CB3B /* MediaItem.swift */,
+				26E865951B8F66220018CB3B /* Tweet.swift */,
+				26E865961B8F66220018CB3B /* TwitterRequest.swift */,
+				26E865971B8F66220018CB3B /* User.swift */,
 			);
 			path = "Twitter Swift 1.2";
 			sourceTree = "<group>";
@@ -233,11 +236,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				26D533121B8EC323008459E2 /* AppDelegate.swift in Sources */,
-				26E865881B8F50B40018CB3B /* TwitterRequest.swift in Sources */,
-				26E865891B8F50B40018CB3B /* User.swift in Sources */,
+				26E8659A1B8F66220018CB3B /* TwitterRequest.swift in Sources */,
+				26E8659B1B8F66220018CB3B /* User.swift in Sources */,
 				26D533341B8EC584008459E2 /* TweetTableViewController.swift in Sources */,
-				26E865861B8F50B40018CB3B /* MediaItem.swift in Sources */,
-				26E865871B8F50B40018CB3B /* Tweet.swift in Sources */,
+				26E865981B8F66220018CB3B /* MediaItem.swift in Sources */,
+				26E865991B8F66220018CB3B /* Tweet.swift in Sources */,
+				26E8659D1B8F6E9E0018CB3B /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
