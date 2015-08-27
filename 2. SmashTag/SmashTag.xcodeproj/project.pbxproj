@@ -88,8 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				26D533331B8EC584008459E2 /* TweetTableViewController.swift */,
-				26D533151B8EC323008459E2 /* Main.storyboard */,
 				26E8659C1B8F6E9E0018CB3B /* TweetTableViewCell.swift */,
+				26D533151B8EC323008459E2 /* Main.storyboard */,
 				26E865931B8F66220018CB3B /* Twitter Swift 1.2 */,
 				26D5330F1B8EC323008459E2 /* Supporting Files */,
 			);
