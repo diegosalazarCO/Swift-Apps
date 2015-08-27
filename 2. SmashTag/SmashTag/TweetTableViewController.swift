@@ -8,18 +8,55 @@
 
 import UIKit
 
-class TweetTableViewController: UITableViewController {
+class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
-    private var tweets = [[Tweet]]()
-
+    var tweets = [[Tweet]]()
+    var searchText: String? = "#Bogota" {
+        didSet {
+            searchTextField?.text = searchText
+            tweets.removeAll()
+            tableView.reloadData()
+            refresh()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        refresh()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func refresh () {
+        if searchText != nil {
+            let request = TwitterRequest(search: searchText!, count: 100)
+            request.fetchTweets { (newTweets) -> Void in
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    if newTweets.count > 0 {
+                        self.tweets.insert(newTweets, atIndex: 0)
+                        self.tableView.reloadData()
+                    }
+                    
+                }
+            }
+        }
+    }
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet {
+            searchTextField.delegate = self
+            searchTextField.text = searchText
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == searchTextField {
+            textField.resignFirstResponder()
+            searchText = textField.text
+        }
+        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,26 +67,27 @@ class TweetTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        return tweets.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return tweets[section].count
+    }
+    
+    private struct Storyboard {
+        static let CellReuseIdentifier = "Tweet"
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell 
 
         // Configure the cell...
+        let tweet = tweets[indexPath.section][indexPath.row]
+        cell.textLabel?.text = tweet.text
+        cell.detailTextLabel?.text = tweet.user.screenName
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
