@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CZY-ik-3fN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CZY-ik-3fN">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -319,7 +319,7 @@
                                     <action selector="guardarVariable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P5X-I5-saR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJz-qa-nRz">
+                            <button opaque="NO" alpha="0.59999999999999964" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJz-qa-nRz">
                                 <rect key="frame" x="16" y="64" width="32" height="64"/>
                                 <state key="normal" image="GraphIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -482,11 +482,26 @@
                     <view key="view" contentMode="scaleToFill" id="yRP-JZ-sLX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyM-op-4Wm" customClass="GraficoView" customModule="SwiftKalk" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="eyM-op-4Wm" firstAttribute="bottom" secondItem="hRk-oA-3id" secondAttribute="top" id="70t-3J-GIW"/>
+                            <constraint firstAttribute="trailing" secondItem="eyM-op-4Wm" secondAttribute="trailing" id="BjY-HR-mOR"/>
+                            <constraint firstItem="eyM-op-4Wm" firstAttribute="leading" secondItem="yRP-JZ-sLX" secondAttribute="leading" id="Fcs-cv-YEE"/>
+                            <constraint firstItem="eyM-op-4Wm" firstAttribute="top" secondItem="yRP-JZ-sLX" secondAttribute="top" id="RY6-dc-nqv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Gráfico" id="nzd-GE-0Qr">
                         <barButtonItem key="backBarButtonItem" title="Atrás" id="xTq-WQ-MLM"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="graficoView" destination="eyM-op-4Wm" id="sBR-OJ-hX6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ew4-Rs-Twi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
