@@ -24,6 +24,7 @@ public class Tweet : Printable
     public let hashtags: [IndexedKeyword]
     public let urls: [IndexedKeyword]
     public let userMentions: [IndexedKeyword]
+    public var mediaMentions = [IndexedKeyword]()
 
     public struct IndexedKeyword: Printable
     {
@@ -89,6 +90,7 @@ public class Tweet : Printable
                     accumulatedMedia.append(mediaItem)
                 }
             }
+            mediaMentions = Tweet.getIndexedKeywords(mediaEntities, inText: text, prefix: "h")
         }
         media = accumulatedMedia
         let hashtagMentionsArray = data?.valueForKeyPath(TwitterKey.Entities.Hashtags) as? NSArray
