@@ -17,7 +17,7 @@ class TweetTableViewCell: UITableViewCell {
     }
     var hashtagColor = UIColor(red: 99.0/255.0, green: 57.0/255.0, blue: 62.0/255.0, alpha: 1.0)
     var urlColor = UIColor(red: 85.0/255.0, green: 92.0/255.0, blue: 147.0/255.0, alpha: 1.0)
-    var userMentionsColor = UIColor(red: 82.0/255.0, green: 237.0/255.0, blue: 199.0/255.0, alpha: 1.0)
+    var userMentionsColor = UIColor(red: 253.0/255.0, green: 91.0/255.0, blue: 3.0/255.0, alpha: 1.0)
     
     @IBOutlet weak var tweetProfileImageView: UIImageView!
     @IBOutlet weak var tweetScreenNameLabel: UILabel!
@@ -44,7 +44,7 @@ class TweetTableViewCell: UITableViewCell {
             attributedText.changeKeywordsColor(tweet.urls, color: urlColor)
             attributedText.changeKeywordsColor(tweet.userMentions, color: userMentionsColor)
             
-            //attributedText.changeKeywordsColor(tweet.media, color: urlColor)
+            attributedText.changeKeywordsColor(tweet.mediaMentions, color: urlColor)
             
             tweetTextLabel?.attributedText = attributedText
             
@@ -63,6 +63,11 @@ class TweetTableViewCell: UITableViewCell {
 //                formatter.timeStyle = NSDateFormatterStyle.ShortStyle
 //            }
 //            tweetCreatedLabel?.text = formatter.stringFromDate(tweet.created)
+            if tweet.hashtags.count + tweet.urls.count + tweet.userMentions.count + tweet.media.count > 0 {
+                accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            } else {
+                accessoryType = UITableViewCellAccessoryType.None
+            }
         }
     }
 }
