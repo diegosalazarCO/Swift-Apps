@@ -62,6 +62,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
                             self.lastSuccessfulRequest = request
                             self.tweets.insert(newTweets, atIndex: 0)
                             self.tableView.reloadData()
+                            self.title = self.searchText
                         }
                         sender?.endRefreshing()
                     }
@@ -103,6 +104,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
     private struct Storyboard {
         static let CellReuseIdentifier = "Tweet"
+        static let MentionsIdentifier = "Show Mentions"
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -149,14 +151,31 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if identifier == Storyboard.MentionsIdentifier {
+            if let tweetCell = sender as? TweetTableViewCell {
+                if tweetCell.tweet!.urls.count + tweetCell.tweet!.hashtags.count + tweetCell.tweet!.mediaMentions.count + tweetCell.tweet!.media.count + tweetCell.tweet!.userMentions.count == 0 {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if let identifier = segue.identifier {
+            if identifier == Storyboard.MentionsIdentifier {
+                if let dttvc = segue.destinationViewController as? DetailTweetTableViewController {
+                    if let tweetCell = sender as? TweetTableViewCell {
+                        dttvc.tweet = tweetCell.tweet
+                    }
+                }
+            }
+        }
     }
-    */
 
 }
