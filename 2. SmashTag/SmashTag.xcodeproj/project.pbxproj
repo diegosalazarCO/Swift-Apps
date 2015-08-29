@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26583D941B9150A200274382 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26583D931B9150A200274382 /* NavigationViewController.swift */; };
 		26D533121B8EC323008459E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D533111B8EC323008459E2 /* AppDelegate.swift */; };
 		26D533171B8EC323008459E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26D533151B8EC323008459E2 /* Main.storyboard */; };
 		26D533191B8EC323008459E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26D533181B8EC323008459E2 /* Images.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26583D931B9150A200274382 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		26D5330C1B8EC323008459E2 /* SmashTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D533101B8EC323008459E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26D533111B8EC323008459E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				26D533151B8EC323008459E2 /* Main.storyboard */,
+				26583D931B9150A200274382 /* NavigationViewController.swift */,
 				26D533331B8EC584008459E2 /* TweetTableViewController.swift */,
 				26E8659C1B8F6E9E0018CB3B /* TweetTableViewCell.swift */,
 				26E3AB3A1B8FF0C100397E2F /* DetailTweetTableViewController.swift */,
@@ -249,6 +252,7 @@
 				26E865981B8F66220018CB3B /* MediaItem.swift in Sources */,
 				26E865991B8F66220018CB3B /* Tweet.swift in Sources */,
 				26E8659D1B8F6E9E0018CB3B /* TweetTableViewCell.swift in Sources */,
+				26583D941B9150A200274382 /* NavigationViewController.swift in Sources */,
 				26E3AB3B1B8FF0C100397E2F /* DetailTweetTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

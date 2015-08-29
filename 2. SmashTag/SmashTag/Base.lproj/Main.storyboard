@@ -17,7 +17,7 @@
                             <rect key="frame" x="0.0" y="-30" width="600" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.1764705882" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                             <textInputTraits key="textInputTraits" keyboardType="twitter"/>
                         </textField>
@@ -43,13 +43,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEA-W4-ZXZ">
                                             <rect key="frame" x="64" y="8" width="495" height="20"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.1764705882" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSI-gE-QC0">
                                             <rect key="frame" x="64" y="36" width="495" height="117"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.1764705882" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -89,12 +89,12 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1764705882" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="tweetProfileImageView" destination="OmG-0e-Obe" id="K0E-m2-Sok"/>
                                     <outlet property="tweetScreenNameLabel" destination="GEA-W4-ZXZ" id="iiT-EQ-Ji1"/>
                                     <outlet property="tweetTextLabel" destination="kSI-gE-QC0" id="UKC-HE-kq4"/>
-                                    <segue destination="fJ7-wb-Ehs" kind="show" identifier="DetailTweet" id="qJp-IT-1QZ"/>
+                                    <segue destination="fJ7-wb-Ehs" kind="show" identifier="Show Mentions" id="qJp-IT-1QZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -127,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Keywords" textLabel="iAc-y5-yya" style="IBUITableViewCellStyleDefault" id="GRi-XI-p97">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Keywords Cell" textLabel="iAc-y5-yya" style="IBUITableViewCellStyleDefault" id="GRi-XI-p97">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GRi-XI-p97" id="oyY-14-N7U">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -135,29 +135,41 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iAc-y5-yya">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.1764705882" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MediaImage" rowHeight="280" id="UQK-AV-A8C">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Images Cell" rowHeight="280" id="UQK-AV-A8C" customClass="DetailTweetTableViewCell" customModule="SmashTag" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UQK-AV-A8C" id="jq2-jd-7bg">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="5Ih-pT-qL1">
-                                            <rect key="frame" x="290" y="130" width="20" height="20"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                         </activityIndicatorView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qVu-Qn-2CK">
-                                            <rect key="frame" x="0.0" y="4" width="600" height="275"/>
-                                            <color key="backgroundColor" red="0.1764705882" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qVu-Qn-2CK">
+                                            <rect key="frame" x="8" y="8" width="584" height="263"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qVu-Qn-2CK" firstAttribute="top" secondItem="jq2-jd-7bg" secondAttribute="topMargin" id="2Gu-qg-JIA"/>
+                                        <constraint firstItem="qVu-Qn-2CK" firstAttribute="leading" secondItem="jq2-jd-7bg" secondAttribute="leadingMargin" id="C1P-Wt-PXy"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="qVu-Qn-2CK" secondAttribute="trailing" id="IwT-Qd-xHA"/>
+                                        <constraint firstAttribute="centerX" secondItem="qVu-Qn-2CK" secondAttribute="centerX" id="MDg-Ui-gH5"/>
+                                        <constraint firstAttribute="centerY" secondItem="qVu-Qn-2CK" secondAttribute="centerY" id="oao-94-9cy"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="qVu-Qn-2CK" secondAttribute="bottom" id="wPj-jY-MzM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1764705882" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="spinner" destination="5Ih-pT-qL1" id="JDJ-rI-ePb"/>
+                                    <outlet property="tweetImage" destination="qVu-Qn-2CK" id="W4J-Sa-kVx"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -170,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="1722" y="206"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="R29-r0-9dE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b9z-m2-xnx" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b9z-m2-xnx" customClass="NavigationViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mg8-u5-vLV">
