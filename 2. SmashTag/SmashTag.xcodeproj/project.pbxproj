@@ -21,6 +21,7 @@
 		26E8659A1B8F66220018CB3B /* TwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865961B8F66220018CB3B /* TwitterRequest.swift */; };
 		26E8659B1B8F66220018CB3B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865971B8F66220018CB3B /* User.swift */; };
 		26E8659D1B8F6E9E0018CB3B /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8659C1B8F6E9E0018CB3B /* TweetTableViewCell.swift */; };
+		26EAFC651B9235A900389F82 /* ZoomImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EAFC641B9235A900389F82 /* ZoomImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		26E865961B8F66220018CB3B /* TwitterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterRequest.swift; sourceTree = "<group>"; };
 		26E865971B8F66220018CB3B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		26E8659C1B8F6E9E0018CB3B /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		26EAFC641B9235A900389F82 /* ZoomImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				26E8659C1B8F6E9E0018CB3B /* TweetTableViewCell.swift */,
 				26E3AB3A1B8FF0C100397E2F /* DetailTweetTableViewController.swift */,
 				26E3AB381B8FF06F00397E2F /* DetailTweetTableViewCell.swift */,
+				26EAFC641B9235A900389F82 /* ZoomImageViewController.swift */,
 				26E865931B8F66220018CB3B /* Twitter Swift 1.2 */,
 				26D5330F1B8EC323008459E2 /* Supporting Files */,
 			);
@@ -246,6 +249,7 @@
 			files = (
 				26E3AB391B8FF06F00397E2F /* DetailTweetTableViewCell.swift in Sources */,
 				26D533121B8EC323008459E2 /* AppDelegate.swift in Sources */,
+				26EAFC651B9235A900389F82 /* ZoomImageViewController.swift in Sources */,
 				26E8659A1B8F66220018CB3B /* TwitterRequest.swift in Sources */,
 				26E8659B1B8F66220018CB3B /* User.swift in Sources */,
 				26D533341B8EC584008459E2 /* TweetTableViewController.swift in Sources */,
@@ -385,6 +389,7 @@
 				INFOPLIST_FILE = SmashTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -395,6 +400,7 @@
 				INFOPLIST_FILE = SmashTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

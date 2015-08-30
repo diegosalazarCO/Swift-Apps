@@ -127,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Keywords Cell" textLabel="iAc-y5-yya" style="IBUITableViewCellStyleDefault" id="GRi-XI-p97">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Keywords Cell" textLabel="iAc-y5-yya" style="IBUITableViewCellStyleDefault" id="GRi-XI-p97" customClass="DetailTweetTableViewCell" customModule="SmashTag" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GRi-XI-p97" id="oyY-14-N7U">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -141,6 +141,9 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Iqs-tE-VDb" kind="show" identifier="From Keywords" id="Quh-SM-Rrl"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Images Cell" rowHeight="280" id="UQK-AV-A8C" customClass="DetailTweetTableViewCell" customModule="SmashTag" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -169,6 +172,7 @@
                                 <connections>
                                     <outlet property="spinner" destination="5Ih-pT-qL1" id="JDJ-rI-ePb"/>
                                     <outlet property="tweetImage" destination="qVu-Qn-2CK" id="W4J-Sa-kVx"/>
+                                    <segue destination="GRw-fT-s0G" kind="presentation" identifier="Zoom Image" id="gP9-QT-kEU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -180,7 +184,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FiT-PE-sTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="206"/>
+            <point key="canvasLocation" x="979" y="932"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="R29-r0-9dE">
@@ -201,5 +205,46 @@
             </objects>
             <point key="canvasLocation" x="167" y="188"/>
         </scene>
+        <!--Zoom Image View Controller-->
+        <scene sceneID="w7S-KO-htC">
+            <objects>
+                <viewController id="GRw-fT-s0G" customClass="ZoomImageViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1ho-fU-smx"/>
+                        <viewControllerLayoutGuide type="bottom" id="zVr-rI-gvc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZqE-gt-LB4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doy-bV-0bJ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-ar-Pbn">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="doy-bV-0bJ" firstAttribute="leading" secondItem="ZqE-gt-LB4" secondAttribute="leading" id="8hG-VR-ruy"/>
+                            <constraint firstItem="doy-bV-0bJ" firstAttribute="top" secondItem="ZqE-gt-LB4" secondAttribute="top" id="PhA-C2-ujc"/>
+                            <constraint firstItem="doy-bV-0bJ" firstAttribute="bottom" secondItem="zVr-rI-gvc" secondAttribute="top" id="f3a-ds-Voq"/>
+                            <constraint firstAttribute="centerX" secondItem="MXb-ar-Pbn" secondAttribute="centerX" id="lF7-7I-VTs"/>
+                            <constraint firstAttribute="centerY" secondItem="MXb-ar-Pbn" secondAttribute="centerY" id="mfZ-hY-fCN"/>
+                            <constraint firstAttribute="trailing" secondItem="doy-bV-0bJ" secondAttribute="trailing" id="zJ1-OL-b71"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="doy-bV-0bJ" id="Sc9-Cb-NYG"/>
+                        <outlet property="spinner" destination="MXb-ar-Pbn" id="TnW-OR-fVK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r8x-bY-vjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1680" y="932"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Quh-SM-Rrl"/>
+    </inferredMetricsTieBreakers>
 </document>
