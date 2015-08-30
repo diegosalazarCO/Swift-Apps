@@ -182,7 +182,10 @@ class DetailTweetTableViewController: UITableViewController {
                 }
             } else if identifier == Storyboard.ImageSegueIdentifier {
                 if let zivc = segue.destinationViewController as? ZoomImageViewController {
-                    
+                    if let cell = sender as? DetailTweetTableViewCell {
+                        zivc.imageURL = cell.imageUrl
+                        zivc.title = title
+                    }
                 }
             }
         }
