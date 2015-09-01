@@ -116,7 +116,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C74-kK-7Eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="188"/>
+            <point key="canvasLocation" x="1741" y="188"/>
         </scene>
         <!--Detail Tweet Table View Controller-->
         <scene sceneID="xvo-4E-RUh">
@@ -186,20 +186,31 @@
             </objects>
             <point key="canvasLocation" x="167" y="932"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Busquedas-->
         <scene sceneID="NFw-st-iiC">
             <objects>
-                <tableViewController id="dEY-ar-rAy" sceneMemberID="viewController">
+                <tableViewController id="dEY-ar-rAy" customClass="HistoryTableViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3gq-ep-dlk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QhS-dE-nGK">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="History Cell" textLabel="MB9-yc-30v" style="IBUITableViewCellStyleDefault" id="QhS-dE-nGK">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QhS-dE-nGK" id="N2N-Ls-Qfx">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MB9-yc-30v">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Iqs-tE-VDb" kind="show" identifier="Show Search" id="3E8-ew-Qgj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -207,7 +218,9 @@
                             <outlet property="delegate" destination="dEY-ar-rAy" id="iHK-qv-P0f"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZGt-yX-C7q"/>
+                    <navigationItem key="navigationItem" title="Busquedas" id="ZGt-yX-C7q">
+                        <barButtonItem key="backBarButtonItem" title="Inicio" id="Kiy-gI-ZVp"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLt-rG-HlV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -311,6 +324,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SvR-tj-sQM"/>
+        <segue reference="3E8-ew-Qgj"/>
     </inferredMetricsTieBreakers>
 </document>

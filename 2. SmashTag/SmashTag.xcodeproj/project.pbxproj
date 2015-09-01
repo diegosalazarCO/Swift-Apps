@@ -22,6 +22,8 @@
 		26E8659B1B8F66220018CB3B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E865971B8F66220018CB3B /* User.swift */; };
 		26E8659D1B8F6E9E0018CB3B /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8659C1B8F6E9E0018CB3B /* TweetTableViewCell.swift */; };
 		26EAFC651B9235A900389F82 /* ZoomImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EAFC641B9235A900389F82 /* ZoomImageViewController.swift */; };
+		26F75D991B9549D9004DA591 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F75D981B9549D9004DA591 /* HistoryTableViewController.swift */; };
+		26F75D9B1B954A40004DA591 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F75D9A1B954A40004DA591 /* History.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		26E865971B8F66220018CB3B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		26E8659C1B8F6E9E0018CB3B /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		26EAFC641B9235A900389F82 /* ZoomImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomImageViewController.swift; sourceTree = "<group>"; };
+		26F75D981B9549D9004DA591 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		26F75D9A1B954A40004DA591 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				26E3AB3A1B8FF0C100397E2F /* DetailTweetTableViewController.swift */,
 				26E3AB381B8FF06F00397E2F /* DetailTweetTableViewCell.swift */,
 				26EAFC641B9235A900389F82 /* ZoomImageViewController.swift */,
+				26F75D9A1B954A40004DA591 /* History.swift */,
+				26F75D981B9549D9004DA591 /* HistoryTableViewController.swift */,
 				26E865931B8F66220018CB3B /* Twitter Swift 1.2 */,
 				26D5330F1B8EC323008459E2 /* Supporting Files */,
 			);
@@ -255,7 +261,9 @@
 				26D533341B8EC584008459E2 /* TweetTableViewController.swift in Sources */,
 				26E865981B8F66220018CB3B /* MediaItem.swift in Sources */,
 				26E865991B8F66220018CB3B /* Tweet.swift in Sources */,
+				26F75D991B9549D9004DA591 /* HistoryTableViewController.swift in Sources */,
 				26E8659D1B8F6E9E0018CB3B /* TweetTableViewCell.swift in Sources */,
+				26F75D9B1B954A40004DA591 /* History.swift in Sources */,
 				26583D941B9150A200274382 /* NavigationViewController.swift in Sources */,
 				26E3AB3B1B8FF0C100397E2F /* DetailTweetTableViewController.swift in Sources */,
 			);
