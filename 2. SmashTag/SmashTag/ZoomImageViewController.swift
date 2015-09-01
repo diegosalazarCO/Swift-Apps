@@ -63,8 +63,8 @@ class ZoomImageViewController: UIViewController, UIScrollViewDelegate {
         didSet {
             scrollView.contentSize = imageView.frame.size // critical to set this!
             scrollView.delegate = self                    // required for zooming
-            scrollView.minimumZoomScale = 0.03            // required for zooming
-            scrollView.maximumZoomScale = 1.0             // required for zooming
+            scrollView.minimumZoomScale = 0.3            // required for zooming
+            scrollView.maximumZoomScale = 3.0             // required for zooming
         }
     }
     
@@ -72,6 +72,14 @@ class ZoomImageViewController: UIViewController, UIScrollViewDelegate {
     // required for zooming
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        scrollViewDidScrollOrZoom = true
+    }
+    
+    func scrollViewDidZoom(scrollView: UIScrollView) {
+        scrollViewDidScrollOrZoom = true
     }
     
     private var imageView = UIImageView()
@@ -88,6 +96,25 @@ class ZoomImageViewController: UIViewController, UIScrollViewDelegate {
             imageView.sizeToFit()
             scrollView?.contentSize = imageView.frame.size
             spinner?.stopAnimating()
+            scrollViewDidScrollOrZoom = false
+            autoScale()
+        }
+    }
+    
+    private var scrollViewDidScrollOrZoom = false
+    
+    private func autoScale() {
+        if scrollViewDidScrollOrZoom {
+            return
+        }
+        if let sv = scrollView {
+            if image != nil {
+                sv.zoomScale = max(sv.bounds.size.height / image!.size.height,
+                    sv.bounds.size.width / image!.size.width)
+                sv.contentOffset = CGPoint(x: (imageView.frame.size.width - sv.frame.size.width) / 2,
+                    y: (imageView.frame.size.height - sv.frame.size.height) / 2)
+                scrollViewDidScrollOrZoom = false
+            }
         }
     }
     
@@ -106,6 +133,11 @@ class ZoomImageViewController: UIViewController, UIScrollViewDelegate {
         if image == nil {
             fetchImage()
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        autoScale()
     }
 
 }
