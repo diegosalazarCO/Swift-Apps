@@ -172,7 +172,7 @@
                                 <connections>
                                     <outlet property="spinner" destination="5Ih-pT-qL1" id="JDJ-rI-ePb"/>
                                     <outlet property="tweetImage" destination="qVu-Qn-2CK" id="W4J-Sa-kVx"/>
-                                    <segue destination="GRw-fT-s0G" kind="presentation" identifier="Zoom Image" id="gP9-QT-kEU"/>
+                                    <segue destination="GRw-fT-s0G" kind="show" identifier="Zoom Image" id="gP9-QT-kEU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
