@@ -226,11 +226,11 @@
             </objects>
             <point key="canvasLocation" x="979" y="-574"/>
         </scene>
-        <!--Navigation View Controller-->
+        <!--Buscar-->
         <scene sceneID="R29-r0-9dE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b9z-m2-xnx" customClass="NavigationViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="fm0-fT-pMV"/>
+                    <tabBarItem key="tabBarItem" title="Buscar" image="Search-Gray" id="fm0-fT-pMV"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mg8-u5-vLV">
@@ -303,11 +303,11 @@
             </objects>
             <point key="canvasLocation" x="167" y="188"/>
         </scene>
-        <!--Navigation View Controller-->
+        <!--Busquedas-->
         <scene sceneID="m8z-Vf-1WD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g59-eo-Vdv" customClass="NavigationViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="vba-56-sub"/>
+                    <tabBarItem key="tabBarItem" title="Busquedas" image="List-Grey" id="vba-56-sub"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tVu-4c-h7c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -323,7 +323,11 @@
             <point key="canvasLocation" x="167" y="-574"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="List-Grey" width="25" height="25"/>
+        <image name="Search-Gray" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3E8-ew-Qgj"/>
+        <segue reference="SvR-tj-sQM"/>
     </inferredMetricsTieBreakers>
 </document>
