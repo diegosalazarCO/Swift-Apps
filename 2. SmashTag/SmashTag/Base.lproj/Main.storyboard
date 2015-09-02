@@ -284,12 +284,12 @@
             </objects>
             <point key="canvasLocation" x="979" y="932"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="ZZP-F0-LGl">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="P8Y-A1-bXk" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="P8Y-A1-bXk" customClass="TabBarViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="CtP-MO-WhM">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
