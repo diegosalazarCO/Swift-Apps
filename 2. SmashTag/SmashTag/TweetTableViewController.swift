@@ -38,7 +38,11 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     private var nextRequestToAttempt: TwitterRequest? {
         if lastSuccessfulRequest == nil {
             if searchText != nil {
-                return TwitterRequest(search: searchText!, count: 100)
+                var query = searchText!
+                if query.hasPrefix("@") {
+                    query = "\(query) OR from:\(query)"
+                }
+                return TwitterRequest(search: query, count: 100)
             } else {
                 return nil
             }
