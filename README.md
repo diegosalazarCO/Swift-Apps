@@ -6,5 +6,5 @@ _1. SwiftKalk_
 
 _2. SmashTag_
 
-![SmashTag](https://raw.githubusercontent.com/diegosalazarCO/Swift-Apps/master/ScreenShots/SmashTag.png)
+![SmashTag](https://raw.githubusercontent.com/diegosalazarCO/Swift-Apps/master/ScreenShots/Smashtag.png)
 
