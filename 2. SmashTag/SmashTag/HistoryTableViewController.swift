@@ -37,6 +37,8 @@ class HistoryTableViewController: UITableViewController {
 
     // MARK: - Navigation
     
+    @IBAction func unwindToRoot(sender: UIStoryboardSegue) { }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             if identifier == Storyboard.SegueIdentifier {

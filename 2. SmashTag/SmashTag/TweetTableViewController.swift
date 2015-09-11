@@ -26,6 +26,11 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         refresh()
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+        if let first = navigationController?.viewControllers.first as? TweetTableViewController {
+            if first == self {
+                navigationItem.rightBarButtonItem = nil
+            }
+        }
         refresh()
     }
     
@@ -124,6 +129,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
+    @IBAction func unwindToRoot(sender: UIStoryboardSegue) { }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
@@ -135,6 +142,15 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    override func canPerformUnwindSegueAction(action: Selector, fromViewController: UIViewController, withSender sender: AnyObject) -> Bool {
+        if let first = navigationController?.viewControllers.first as? TweetTableViewController {
+            if first == self {
+                return true
+            }
+        }
+        return false
     }
 
 }
