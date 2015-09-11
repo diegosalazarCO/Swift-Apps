@@ -31,4 +31,10 @@ class RecentSearches {
         get { return defaults.objectForKey(Const.ValuesKey) as? [String] ?? [] }
         set { defaults.setObject(newValue, forKey: Const.ValuesKey) }
     }
+    
+    func removeAtIndex(index: Int) {
+        var currentSearches = values
+        currentSearches.removeAtIndex(index)
+        values = currentSearches
+    }
 }
