@@ -25,6 +25,7 @@
 		26F109F31B96504600F7E06F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F109F21B96504600F7E06F /* TabBarViewController.swift */; };
 		26F75D991B9549D9004DA591 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F75D981B9549D9004DA591 /* HistoryTableViewController.swift */; };
 		26F75D9B1B954A40004DA591 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F75D9A1B954A40004DA591 /* History.swift */; };
+		26F77BC91BA3232300225D3E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F77BC81BA3232300225D3E /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		26F109F21B96504600F7E06F /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		26F75D981B9549D9004DA591 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		26F75D9A1B954A40004DA591 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		26F77BC81BA3232300225D3E /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				26EAFC641B9235A900389F82 /* ZoomImageViewController.swift */,
 				26F75D9A1B954A40004DA591 /* History.swift */,
 				26F75D981B9549D9004DA591 /* HistoryTableViewController.swift */,
+				26F77BC81BA3232300225D3E /* WebViewController.swift */,
 				26E865931B8F66220018CB3B /* Twitter Swift 1.2 */,
 				26D5330F1B8EC323008459E2 /* Supporting Files */,
 			);
@@ -269,6 +272,7 @@
 				26E8659D1B8F6E9E0018CB3B /* TweetTableViewCell.swift in Sources */,
 				26F75D9B1B954A40004DA591 /* History.swift in Sources */,
 				26583D941B9150A200274382 /* NavigationViewController.swift in Sources */,
+				26F77BC91BA3232300225D3E /* WebViewController.swift in Sources */,
 				26E3AB3B1B8FF0C100397E2F /* DetailTweetTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

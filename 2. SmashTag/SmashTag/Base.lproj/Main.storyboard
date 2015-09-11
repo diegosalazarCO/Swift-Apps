@@ -127,6 +127,55 @@
             <point key="canvasLocation" x="1741" y="188"/>
         </scene>
         <!--Title-->
+        <scene sceneID="7P5-nh-Ncf">
+            <objects>
+                <viewController id="Cnf-j6-pZd" customClass="WebViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0m0-OP-MV0"/>
+                        <viewControllerLayoutGuide type="bottom" id="HET-gZ-kaT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EQY-9Z-qcf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CM2-Kh-uMc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="49l-ta-BiQ">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <color key="color" red="0.1764705882" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="49l-ta-BiQ" firstAttribute="centerY" secondItem="EQY-9Z-qcf" secondAttribute="centerY" id="8yF-AO-je0"/>
+                            <constraint firstItem="49l-ta-BiQ" firstAttribute="centerX" secondItem="CM2-Kh-uMc" secondAttribute="centerX" id="Y6Q-vF-tLC"/>
+                            <constraint firstItem="CM2-Kh-uMc" firstAttribute="bottom" secondItem="HET-gZ-kaT" secondAttribute="top" id="dR1-Ac-m8r"/>
+                            <constraint firstAttribute="trailing" secondItem="CM2-Kh-uMc" secondAttribute="trailing" id="f5X-23-4mE"/>
+                            <constraint firstItem="CM2-Kh-uMc" firstAttribute="top" secondItem="EQY-9Z-qcf" secondAttribute="top" id="nqe-CL-jWE"/>
+                            <constraint firstItem="CM2-Kh-uMc" firstAttribute="leading" secondItem="EQY-9Z-qcf" secondAttribute="leading" id="sar-ba-Zcq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="Qia-m7-UXg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="AGT-s7-g21">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="6Lg-NW-Vdg" kind="unwind" unwindAction="unwindToRoot:" id="MEV-mY-XoE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="spinner" destination="49l-ta-BiQ" id="h2Y-Kz-ZJD"/>
+                        <outlet property="webView" destination="CM2-Kh-uMc" id="9rX-n3-hF4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3VV-HR-nWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6Lg-NW-Vdg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-520" y="1000"/>
+        </scene>
+        <!--Title-->
         <scene sceneID="xvo-4E-RUh">
             <objects>
                 <tableViewController id="fJ7-wb-Ehs" customClass="DetailTweetTableViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
@@ -197,6 +246,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Cnf-j6-pZd" kind="show" identifier="Show URL" id="TSs-M6-Zea"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FiT-PE-sTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Tja-x6-uGh" userLabel="Exit" sceneMemberID="exit"/>
@@ -283,6 +335,7 @@
                             </scrollView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-ar-Pbn">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <color key="color" red="0.1764705882" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -357,6 +410,6 @@
         <image name="Search-Gray" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3E8-ew-Qgj"/>
+        <segue reference="Quh-SM-Rrl"/>
     </inferredMetricsTieBreakers>
 </document>
