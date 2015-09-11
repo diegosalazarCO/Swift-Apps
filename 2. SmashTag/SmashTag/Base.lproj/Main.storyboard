@@ -103,7 +103,14 @@
                             <outlet property="delegate" destination="Iqs-tE-VDb" id="GRT-HN-XGt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="npR-LY-7tN"/>
+                    <navigationItem key="navigationItem" id="npR-LY-7tN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="iH7-tz-apL">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="F1W-Mr-83g" kind="unwind" unwindAction="unwindToRoot:" id="WxZ-PH-nTB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="OVa-su-Dh6">
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
@@ -115,10 +122,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C74-kK-7Eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="F1W-Mr-83g" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1741" y="188"/>
         </scene>
-        <!--Detail Tweet Table View Controller-->
+        <!--Title-->
         <scene sceneID="xvo-4E-RUh">
             <objects>
                 <tableViewController id="fJ7-wb-Ehs" customClass="DetailTweetTableViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
@@ -181,8 +189,17 @@
                             <outlet property="delegate" destination="fJ7-wb-Ehs" id="q3f-vQ-cm7"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="dW4-B1-dza">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="4Ow-h5-vpB">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="Tja-x6-uGh" kind="unwind" unwindAction="unwindToRoot:" id="CUR-Gt-fK5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FiT-PE-sTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Tja-x6-uGh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="167" y="932"/>
         </scene>
@@ -203,7 +220,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MB9-yc-30v">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -238,6 +255,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="rfs-wZ-VA8">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Iqs-tE-VDb" kind="relationship" relationship="rootViewController" id="SvR-tj-sQM"/>
                     </connections>
@@ -246,10 +266,10 @@
             </objects>
             <point key="canvasLocation" x="979" y="188"/>
         </scene>
-        <!--Zoom Image View Controller-->
+        <!--Title-->
         <scene sceneID="w7S-KO-htC">
             <objects>
-                <viewController id="GRw-fT-s0G" customClass="ZoomImageViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="GRw-fT-s0G" customClass="ZoomImageViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1ho-fU-smx"/>
                         <viewControllerLayoutGuide type="bottom" id="zVr-rI-gvc"/>
@@ -275,12 +295,21 @@
                             <constraint firstAttribute="trailing" secondItem="doy-bV-0bJ" secondAttribute="trailing" id="zJ1-OL-b71"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="wXx-JQ-FaY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="TM4-jD-9Lb">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="1YT-8N-MHw" kind="unwind" unwindAction="unwindToRoot:" id="rUd-dD-06H"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="doy-bV-0bJ" id="Sc9-Cb-NYG"/>
                         <outlet property="spinner" destination="MXb-ar-Pbn" id="TnW-OR-fVK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8x-bY-vjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1YT-8N-MHw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="979" y="932"/>
         </scene>
@@ -289,7 +318,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="P8Y-A1-bXk" customClass="TabBarViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="CtP-MO-WhM">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -328,6 +357,6 @@
         <image name="Search-Gray" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SvR-tj-sQM"/>
+        <segue reference="3E8-ew-Qgj"/>
     </inferredMetricsTieBreakers>
 </document>
