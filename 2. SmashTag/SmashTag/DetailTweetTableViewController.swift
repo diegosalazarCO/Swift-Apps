@@ -101,7 +101,7 @@ class DetailTweetTableViewController: UITableViewController {
                 forIndexPath: indexPath) 
             cell.textLabel?.text = keyword
             return cell
-        case .Image(let url, let ratio):
+        case .Image(let url, _):
             let cell = tableView.dequeueReusableCellWithIdentifier(
                 Storyboard.ImageCellReuseIdentifier,
                 forIndexPath: indexPath) as! DetailTweetTableViewCell
