@@ -18,7 +18,7 @@ class DetailTweetTableViewCell: UITableViewCell {
         tweetImage?.image = nil
         if let url = imageUrl {
             spinner?.startAnimating()
-            dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {
+            dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
                 let imageData = NSData(contentsOfURL: url)
                 dispatch_async(dispatch_get_main_queue()) {
                     if url == self.imageUrl {

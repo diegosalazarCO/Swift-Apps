@@ -118,7 +118,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
     // MARK: - Navigation
 
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == Storyboard.MentionsIdentifier {
             if let tweetCell = sender as? TweetTableViewCell {
                 if tweetCell.tweet!.urls.count + tweetCell.tweet!.hashtags.count + tweetCell.tweet!.mediaMentions.count + tweetCell.tweet!.media.count + tweetCell.tweet!.userMentions.count == 0 {

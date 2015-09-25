@@ -16,7 +16,7 @@ class RecentSearches {
     
     func add(search: String) {
         var currentSearches = values
-        if let index = find(currentSearches, search) {
+        if let index = currentSearches.indexOf(search) {
             currentSearches.removeAtIndex(index)
         }
         currentSearches.insert(search, atIndex: 0)

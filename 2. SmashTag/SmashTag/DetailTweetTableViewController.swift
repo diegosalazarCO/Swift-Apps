@@ -43,13 +43,13 @@ class DetailTweetTableViewController: UITableViewController {
     
     var mentions = [Mentions]()
     
-    struct Mentions: Printable {
+    struct Mentions: CustomStringConvertible {
         var title: String
         var data: [MentionItem]
         var description: String { return "\(title): \(data)"}
     }
     
-    enum MentionItem: Printable {
+    enum MentionItem: CustomStringConvertible {
         case Keyword(String)
         case Image(NSURL, Double)
         var description: String {
@@ -98,7 +98,7 @@ class DetailTweetTableViewController: UITableViewController {
         case .Keyword(let keyword):
             let cell = tableView.dequeueReusableCellWithIdentifier(
                 Storyboard.KeywordCellReuseIdentifier,
-                forIndexPath: indexPath) as! UITableViewCell
+                forIndexPath: indexPath) 
             cell.textLabel?.text = keyword
             return cell
         case .Image(let url, let ratio):
@@ -154,7 +154,7 @@ class DetailTweetTableViewController: UITableViewController {
         }
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == Storyboard.FromKeywordReuseIdentifier {
             if let cell = sender as? UITableViewCell {
                 if let url = cell.textLabel?.text {

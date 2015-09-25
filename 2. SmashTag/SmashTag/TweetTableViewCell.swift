@@ -31,7 +31,7 @@ class TweetTableViewCell: UITableViewCell {
         //tweetCreatedLabel?.text = nil
         
         // load new information from our tweet (if any)
-        if var tweet = self.tweet
+        if let tweet = self.tweet
         {
             var text: String? = tweet.text
             
@@ -39,7 +39,7 @@ class TweetTableViewCell: UITableViewCell {
                 text = text!+" 📷"
             }
             
-            var attributedText = NSMutableAttributedString(string: text!)
+            let attributedText = NSMutableAttributedString(string: text!)
             attributedText.changeKeywordsColor(tweet.hashtags, color: hashtagColor)
             attributedText.changeKeywordsColor(tweet.urls, color: urlColor)
             attributedText.changeKeywordsColor(tweet.userMentions, color: userMentionsColor)
@@ -54,7 +54,7 @@ class TweetTableViewCell: UITableViewCell {
                 /*if let imageData = NSData(contentsOfURL: profileImageURL) { // blocks main thread!
                     tweetProfileImageView?.image = UIImage(data: imageData)
                 } */
-                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {
+                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
                     let imageData = NSData(contentsOfURL: profileImageURL)
                     dispatch_async(dispatch_get_main_queue()) {
                         if profileImageURL == tweet.user.profileImageURL {

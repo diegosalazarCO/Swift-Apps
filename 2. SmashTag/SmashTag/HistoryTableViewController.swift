@@ -30,7 +30,7 @@ class HistoryTableViewController: UITableViewController {
         static let SegueIdentifier = "Show Search"
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) 
         cell.textLabel?.text = RecentSearches().values[indexPath.row]
         return cell
     }
