@@ -34,8 +34,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         refresh()
     }
     
-    private var lastSuccessfulRequest: TwitterRequest?
-    private var nextRequestToAttempt: TwitterRequest? {
+    fileprivate var lastSuccessfulRequest: TwitterRequest?
+    fileprivate var nextRequestToAttempt: TwitterRequest? {
         if lastSuccessfulRequest == nil {
             if searchText != nil {
                 var query = searchText!
@@ -57,15 +57,15 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         refresh(refreshControl)
     }
     
-    @IBAction func refresh(sender: UIRefreshControl?) {
+    @IBAction func refresh(_ sender: UIRefreshControl?) {
         if searchText != nil {
             RecentSearches().add(searchText!)
             if let request = nextRequestToAttempt {
                 request.fetchTweets { (newTweets) -> Void in
-                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    DispatchQueue.main.async { () -> Void in
                         if newTweets.count > 0 {
                             self.lastSuccessfulRequest = request
-                            self.tweets.insert(newTweets, atIndex: 0)
+                            self.tweets.insert(newTweets, at: 0)
                             self.tableView.reloadData()
                             self.title = self.searchText
                         }
@@ -84,7 +84,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == searchTextField {
             textField.resignFirstResponder()
             searchText = textField.text
@@ -94,31 +94,31 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return tweets.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets[section].count
     }
     
-    private struct Storyboard {
+    fileprivate struct Storyboard {
         static let CellReuseIdentifier = "Tweet"
         static let MentionsIdentifier = "Show Mentions"
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! TweetTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.CellReuseIdentifier, for: indexPath) as! TweetTableViewCell
 
         // Configure the cell...
-        cell.tweet = tweets[indexPath.section][indexPath.row]
+        cell.tweet = tweets[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
 
         return cell
     }
     
     // MARK: - Navigation
 
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == Storyboard.MentionsIdentifier {
             if let tweetCell = sender as? TweetTableViewCell {
                 if tweetCell.tweet!.urls.count + tweetCell.tweet!.hashtags.count + tweetCell.tweet!.mediaMentions.count + tweetCell.tweet!.media.count + tweetCell.tweet!.userMentions.count == 0 {
@@ -129,13 +129,13 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
-    @IBAction func unwindToRoot(sender: UIStoryboardSegue) { }
+    @IBAction func unwindToRoot(_ sender: UIStoryboardSegue) { }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == Storyboard.MentionsIdentifier {
-                if let dttvc = segue.destinationViewController as? DetailTweetTableViewController {
+                if let dttvc = segue.destination as? DetailTweetTableViewController {
                     if let tweetCell = sender as? TweetTableViewCell {
                         dttvc.tweet = tweetCell.tweet
                     }
@@ -144,7 +144,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    override func canPerformUnwindSegueAction(action: Selector, fromViewController: UIViewController, withSender sender: AnyObject) -> Bool {
+    override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, withSender sender: Any) -> Bool {
         if let first = navigationController?.viewControllers.first as? TweetTableViewController {
             if first == self {
                 return true

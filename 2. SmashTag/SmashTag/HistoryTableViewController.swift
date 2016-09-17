@@ -12,44 +12,44 @@ class HistoryTableViewController: UITableViewController {
 
     // MARK: - life cycle
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return RecentSearches().values.count
     }
     
-    private struct Storyboard {
+    fileprivate struct Storyboard {
         static let CellReuseIdentifier = "History Cell"
         static let SegueIdentifier = "Show Search"
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) 
-        cell.textLabel?.text = RecentSearches().values[indexPath.row]
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.CellReuseIdentifier, for: indexPath) 
+        cell.textLabel?.text = RecentSearches().values[(indexPath as NSIndexPath).row]
         return cell
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            RecentSearches().removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            RecentSearches().removeAtIndex((indexPath as NSIndexPath).row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 
     // MARK: - Navigation
     
-    @IBAction func unwindToRoot(sender: UIStoryboardSegue) { }
+    @IBAction func unwindToRoot(_ sender: UIStoryboardSegue) { }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == Storyboard.SegueIdentifier {
-                if let ttvc = segue.destinationViewController as? TweetTableViewController {
+                if let ttvc = segue.destination as? TweetTableViewController {
                     if let cell = sender as? UITableViewCell {
                         ttvc.searchText = cell.textLabel?.text
                     }

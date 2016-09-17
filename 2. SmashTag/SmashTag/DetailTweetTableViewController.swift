@@ -16,25 +16,25 @@ class DetailTweetTableViewController: UITableViewController {
             if let media = tweet?.media {
                 if media.count > 0 {
                     mentions.append(Mentions(title: "Imágenes",
-                    data: media.map { MentionItem.Image($0.url, $0.aspectRatio) }))
+                    data: media.map { MentionItem.image($0.url as URL, $0.aspectRatio) }))
                 }
             }
             if let urls = tweet?.urls {
                 if urls.count > 0 {
                     mentions.append(Mentions(title: "Links",
-                    data: urls.map { MentionItem.Keyword($0.keyword) }))
+                    data: urls.map { MentionItem.keyword($0.keyword) }))
                 }
             }
             if let hashtags = tweet?.hashtags {
                 if hashtags.count > 0 {
                     mentions.append(Mentions(title: "Hashtags",
-                    data: hashtags.map { MentionItem.Keyword($0.keyword) }))
+                    data: hashtags.map { MentionItem.keyword($0.keyword) }))
                 }
             }
             if let users = tweet?.userMentions {
-                var userItems = [MentionItem.Keyword( "@" + tweet!.user.screenName)]
+                var userItems = [MentionItem.keyword( "@" + tweet!.user.screenName)]
                 if users.count > 0 {
-                    userItems += users.map { MentionItem.Keyword($0.keyword) }
+                    userItems += users.map { MentionItem.keyword($0.keyword) }
                 }
                 mentions.append(Mentions(title: "Usuarios", data: userItems))
             }
@@ -50,12 +50,12 @@ class DetailTweetTableViewController: UITableViewController {
     }
     
     enum MentionItem: CustomStringConvertible {
-        case Keyword(String)
-        case Image(NSURL, Double)
+        case keyword(String)
+        case image(URL, Double)
         var description: String {
             switch self {
-            case .Keyword(let keyword): return keyword
-            case .Image(let url, _): return url.path!
+            case .keyword(let keyword): return keyword
+            case .image(let url, _): return url.path
             }
         }
     }
@@ -72,7 +72,7 @@ class DetailTweetTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    private struct Storyboard {
+    fileprivate struct Storyboard {
         static let KeywordCellReuseIdentifier = "Keywords Cell"
         static let ImageCellReuseIdentifier = "Images Cell"
         static let FromKeywordReuseIdentifier = "From Keywords"
@@ -80,73 +80,73 @@ class DetailTweetTableViewController: UITableViewController {
         static let WebSegueIdentifier = "Show URL"
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return mentions.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mentions[section].data.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         // Configure the cell...
-        let mention = mentions[indexPath.section].data[indexPath.row]
+        let mention = mentions[(indexPath as NSIndexPath).section].data[(indexPath as NSIndexPath).row]
         
         switch mention {
-        case .Keyword(let keyword):
-            let cell = tableView.dequeueReusableCellWithIdentifier(
-                Storyboard.KeywordCellReuseIdentifier,
-                forIndexPath: indexPath) 
+        case .keyword(let keyword):
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: Storyboard.KeywordCellReuseIdentifier,
+                for: indexPath) 
             cell.textLabel?.text = keyword
             return cell
-        case .Image(let url, _):
-            let cell = tableView.dequeueReusableCellWithIdentifier(
-                Storyboard.ImageCellReuseIdentifier,
-                forIndexPath: indexPath) as! DetailTweetTableViewCell
+        case .image(let url, _):
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: Storyboard.ImageCellReuseIdentifier,
+                for: indexPath) as! DetailTweetTableViewCell
             cell.imageUrl = url
             return cell
         }
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let mention = mentions[indexPath.section].data[indexPath.row]
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let mention = mentions[(indexPath as NSIndexPath).section].data[(indexPath as NSIndexPath).row]
         switch mention {
-        case .Image(_, let ratio):
+        case .image(_, let ratio):
             return tableView.bounds.size.width / CGFloat(ratio)
         default:
             return UITableViewAutomaticDimension
         }
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return mentions[section].title
     }
 
     
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == Storyboard.FromKeywordReuseIdentifier {
-                if let ttvc = segue.destinationViewController as? TweetTableViewController {
+                if let ttvc = segue.destination as? TweetTableViewController {
                     if let tweetCell = sender as? UITableViewCell {
                         ttvc.searchText = tweetCell.textLabel?.text
                     }
                 }
             } else if identifier == Storyboard.ImageSegueIdentifier {
-                if let zivc = segue.destinationViewController as? ZoomImageViewController {
+                if let zivc = segue.destination as? ZoomImageViewController {
                     if let cell = sender as? DetailTweetTableViewCell {
                         zivc.imageURL = cell.imageUrl
                         zivc.title = title
                     }
                 }
             } else if identifier == Storyboard.WebSegueIdentifier {
-                if let wvc = segue.destinationViewController as? WebViewController {
+                if let wvc = segue.destination as? WebViewController {
                     if let cell = sender as? UITableViewCell {
                         if let url = cell.textLabel?.text {
-                            wvc.url = NSURL(string: url)
+                            wvc.url = URL(string: url)
                         }
                     }
                 }
@@ -154,12 +154,12 @@ class DetailTweetTableViewController: UITableViewController {
         }
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == Storyboard.FromKeywordReuseIdentifier {
             if let cell = sender as? UITableViewCell {
                 if let url = cell.textLabel?.text {
                     if url.hasPrefix("http") {
-                        performSegueWithIdentifier(Storyboard.WebSegueIdentifier, sender: sender)
+                        performSegue(withIdentifier: Storyboard.WebSegueIdentifier, sender: sender)
                         //UIApplication.sharedApplication().openURL(NSURL(string: url)!)
                         return false
                     }

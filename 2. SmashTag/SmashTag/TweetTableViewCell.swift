@@ -54,9 +54,9 @@ class TweetTableViewCell: UITableViewCell {
                 /*if let imageData = NSData(contentsOfURL: profileImageURL) { // blocks main thread!
                     tweetProfileImageView?.image = UIImage(data: imageData)
                 } */
-                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
-                    let imageData = NSData(contentsOfURL: profileImageURL)
-                    dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.global(priority: Int(DispatchQoS.QoSClass.userInitiated.rawValue)).async {
+                    let imageData = try? Data(contentsOf: profileImageURL)
+                    DispatchQueue.main.async {
                         if profileImageURL == tweet.user.profileImageURL {
                             if imageData != nil {
                                 self.tweetProfileImageView?.image = UIImage(data: imageData!)
@@ -74,16 +74,16 @@ class TweetTableViewCell: UITableViewCell {
 //            }
 //            tweetCreatedLabel?.text = formatter.stringFromDate(tweet.created)
             if tweet.hashtags.count + tweet.urls.count + tweet.userMentions.count + tweet.media.count > 0 {
-                accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+                accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             } else {
-                accessoryType = UITableViewCellAccessoryType.None
+                accessoryType = UITableViewCellAccessoryType.none
             }
         }
     }
 }
 
 private extension NSMutableAttributedString {
-    func changeKeywordsColor(keywords: [Tweet.IndexedKeyword], color: UIColor) {
+    func changeKeywordsColor(_ keywords: [Tweet.IndexedKeyword], color: UIColor) {
         for keyword in keywords {
             addAttribute(NSForegroundColorAttributeName, value: color, range: keyword.nsrange)
         }

@@ -14,7 +14,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    var url: NSURL? {
+    var url: URL? {
         didSet {
             if view.window != nil {
                 loadURL()
@@ -22,9 +22,9 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
-    private func loadURL() {
+    fileprivate func loadURL() {
         if url != nil {
-            webView.loadRequest(NSURLRequest(URL: url!))
+            webView.loadRequest(URLRequest(url: url!))
         }
     }
     
@@ -37,19 +37,19 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     var activeDownloads = 0
     
-    func webViewDidStartLoad(webView: UIWebView) {
-        activeDownloads++
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        activeDownloads += 1
         spinner.startAnimating()
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
-        activeDownloads--
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        activeDownloads -= 1
         if activeDownloads < 1 {
             spinner.stopAnimating()
         }
     }
     
-    @IBAction func back(sender: UIBarButtonItem) {
+    @IBAction func back(_ sender: UIBarButtonItem) {
         webView.goBack()
     }
 

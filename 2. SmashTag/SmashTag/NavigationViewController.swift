@@ -14,9 +14,9 @@ class NavigationViewController: UINavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationBar.barStyle = UIBarStyle.black
         self.navigationBar.barTintColor = UIColor(red: (60.0/255.0)-0.12, green: (55.0/255.0)-0.12, blue: (65.0/255.0)-0.12, alpha: 1.0)
-        self.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationBar.tintColor = UIColor.white
     }
 
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C8235402-971A-44B0-9902-C251883C0DC9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DA9EF130F9E7728F210F70076287577D5EEBE751</key>
+		<string>https://github.com/kirafreaky/Swift-Apps.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>2. SmashTag/SmashTag.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DA9EF130F9E7728F210F70076287577D5EEBE751</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kirafreaky/Swift-Apps.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DA9EF130F9E7728F210F70076287577D5EEBE751</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DA9EF130F9E7728F210F70076287577D5EEBE751</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Swift%20Apps</string>
+		</dict>
+	</array>
+</dict>
+</plist>

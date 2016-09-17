@@ -17,7 +17,7 @@ class TabBarViewController: UITabBarController {
         
         // Do any additional setup after loading the view.
         self.tabBar.barTintColor = UIColor(red: (60.0/255.0)-0.12, green: (55.0/255.0)-0.12, blue: (65.0/255.0)-0.12, alpha: 1.0)
-        self.tabBar.tintColor = UIColor.whiteColor()
+        self.tabBar.tintColor = UIColor.white
     }
 
 }
